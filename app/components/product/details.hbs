@@ -1,26 +1,31 @@
 <div class="product-details">
     {{!-- Header --}}
     <section>
-        <h3>New Era</h3>
-        <div class="text-warning">
-            <i class="a-icon a-icon a-star-4-5"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-        </div>
+        <h3>{{@name}}</h3>
     </section>
 
         {{!-- Price ----}}
-    <section>
-        <del class="small text-black-50">$199.95</del>
-        <i class="text-danger font-weight-bold">$99.99</i>
+    <section class= {{unless @isDetails 'h3'}}>
+        <del class="small text-black-50">{{currency @price.original}}</del>
+        <i class="text-danger font-weight-bold">{{currency @price.current}}</i>
     </section>
 
-    <div>
-        <h5>Color</h5>
-        <div class="product-colors active-{{@color}}">
-            <span class="product-color color-red" {{on "click" (fn @onChangeColor "red")}}></span>
-            <span class="product-color color-black" {{on "click" (fn @onChangeColor "black")}}></span>
+    {{#if @isDetails}}
+        <div class="d-flex justify-content-between aling-item-end">
+            <div>
+                <h5>Color</h5>
+                <div class="product-colors active-{{@color}}">
+                    {{#each @colors as |colorInfo|}}
+                        <span class="product-color {{concat 'color-' colorInfo.color}}" 
+                        {{on "click" (fn @onChangeColor colorInfo.color)}}></span>
+                    {{/each}}
+                </div>
+            </div>
+            <button type="button" class="btn btn-info" {{on "click" this.addToCart}}>
+                <i class="fa fa-shopping-cart mr-1"></i>
+                Add to Cart
+            </button>
         </div>
-    </div>
+        
+    {{/if}}
 </div>
