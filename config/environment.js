@@ -13,6 +13,10 @@ module.exports = function (environment) {
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
     },
+    'ember-fontawesome': { includeFontFiles: true },
+    fontawesome: {
+      warnIfNoIconsIncluded: false,
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
