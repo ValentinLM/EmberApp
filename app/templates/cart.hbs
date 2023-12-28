@@ -16,8 +16,8 @@
                 <h4>{{item.name}}</h4>
                 <i class="font-weight-bold">{{currency item.price}}</i>
             </div>
-            <input type="number" class="ml-auto" value={{item.count}} min="1" {{on "input" (fn this.updateItemCount item)}}>
-            <button style="color:red">
+            <input type="number" class="ml-auto" value={{item.count}} {{on "input" (fn this.updateItemCount item)}}>
+            <button style="color:red" type="button">
                 Delete
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

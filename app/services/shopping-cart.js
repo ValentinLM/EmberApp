@@ -27,7 +27,10 @@ export default class ShoppingCartService extends Service {
     });
 
     if (existingItem) {
-      existingItem.count += 1;
+      console.log('Si existe');
+      console.log('Antes: ', existingItem.count);
+      existingItem.count++;
+      console.log('Después: ', existingItem.count);
     } else {
       this.itemList = [
         ...this.itemList,
