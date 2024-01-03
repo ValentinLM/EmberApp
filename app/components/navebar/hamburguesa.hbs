@@ -5,8 +5,16 @@
         <div class='menu-button'></div>
     </label>
     <ul class="menu">
-      <li><LinkTo @route="login" >Login</LinkTo></li>
-      <li>Opcion 2</li>
-      <li>Opcion 3</li>
+      <li><LinkTo @route="index" >Home</LinkTo></li>
+      <li>
+        {{!-- {{#if this.session.isAuthenticated}}
+          <a {{on "click" this.invalidateSession}}>Logout</a>
+        {{else}} --}}
+          <LinkTo @route="login" >Login</LinkTo>
+        {{!-- {{/if}} --}}
+      </li>
+      <li>
+        <a href="#">Contacto</a>
+      </li>
     </ul>
 </section>

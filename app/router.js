@@ -11,4 +11,8 @@ Router.map(function () {
   this.route('not-found', { path: '/*path' });
   this.route('cart', { path: 'shopping-cart' });
   this.route('login');
+  // this.route('authenticated', { path: '' }, function () {
+  //   //aqui la rutas que necesitan iniciar sesion
+  // });
+  this.route('home');
 });

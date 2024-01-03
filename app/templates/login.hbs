@@ -1,20 +1,24 @@
+<Navebar::hamburguesa />
+
 <div class="container-login">
     <h1>Login</h1>
-    <form {{on "submit" this.login}}  >
+    <form {{!-- {{on "submit" this.authenticate}} --}} >
         
         <label for="username">Username</label>
-        <input type="text" name="username" {{on "change" (fn this.update "usarname")}}>
-        
-        
-        <label>Password</label>
-        <input type="password" {{on "change" (fn this.update "password")}}>
+        <input id="username" type="text" name="username" {{!--  value={{this.username}} {{on "change" this.update}} --}}>
+                
+        <label for="password">Password</label>
+        <input id="password" type="password" {{!-- value={{this.password}} {{on "change" this.update}} --}}>
         
         <input type="submit" value="Login">
+        {{#if this.errorMessage}}
+            <p>{{this.errorMessage}}</p>
+        {{/if}}
+        <LinkTo @route="index" >
+            Registrate
+        </LinkTo>        
+        
     </form>
 </div>
-
-{{!-- {{#if error}}
-    <p><strong>{{error}}</strong></p>
-{{/if}} --}}
 
 <Footer::EndPage />
